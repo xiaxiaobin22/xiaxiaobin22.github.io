@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 夏小白的博客</title>
+  <title>print()函数的基本使用 | 夏小白的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="夏小白的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="##print()函数的常用输出1234&amp;gt;&amp;gt;&amp;gt;print(&apos;hello world&apos;)hello world&amp;gt;&amp;gt;&amp;gt;print(123456)123456 ##参数格式输出 ###(1)%s：代表了字符串内容，例：1234&amp;gt;&amp;gt;&amp;gt;print(&apos;welcome %s&apos;%&apos;Beijing&apos;)welcome Beijing&amp;gt;&amp;gt;&amp;gt;prin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="print()函数的基本使用">
+<meta property="og:url" content="http://yoursite.com/2018/07/12/learn1/index.html">
 <meta property="og:site_name" content="夏小白的博客">
+<meta property="og:description" content="##print()函数的常用输出1234&amp;gt;&amp;gt;&amp;gt;print(&apos;hello world&apos;)hello world&amp;gt;&amp;gt;&amp;gt;print(123456)123456 ##参数格式输出 ###(1)%s：代表了字符串内容，例：1234&amp;gt;&amp;gt;&amp;gt;print(&apos;welcome %s&apos;%&apos;Beijing&apos;)welcome Beijing&amp;gt;&amp;gt;&amp;gt;prin">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-12T05:48:23.374Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="夏小白的博客">
+<meta name="twitter:title" content="print()函数的基本使用">
+<meta name="twitter:description" content="##print()函数的常用输出1234&amp;gt;&amp;gt;&amp;gt;print(&apos;hello world&apos;)hello world&amp;gt;&amp;gt;&amp;gt;print(123456)123456 ##参数格式输出 ###(1)%s：代表了字符串内容，例：1234&amp;gt;&amp;gt;&amp;gt;print(&apos;welcome %s&apos;%&apos;Beijing&apos;)welcome Beijing&amp;gt;&amp;gt;&amp;gt;prin">
   
     <link rel="alternative" href="/atom.xml" title="夏小白的博客" type="application/atom+xml">
   
@@ -158,103 +162,164 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-learn1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      print()函数的基本使用
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/learn1/" class="archive-article-date">
+
+        
+        <a href="/2018/07/12/learn1/" class="archive-article-date">
   	<time datetime="2018-07-12T05:48:23.142Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/learn1/">print()函数的基本使用</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##print()函数的常用输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'hello world'</span>)</span><br><span class="line">hello world</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(123456)</span><br><span class="line">123456</span><br></pre></td></tr></table></figure></p>
+<p>##参数格式输出</p>
+<p>###(1)%s：代表了字符串内容，例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'welcome %s'</span>%<span class="string">'Beijing'</span>)</span><br><span class="line">welcome Beijing</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'welcome %10.3s'</span>%<span class="string">'Beijing'</span>)</span><br><span class="line">welcome        Bei</span><br></pre></td></tr></table></figure></p>
+<p>10表示输出宽度为10，其中.3表示截取字符串Beijing中的前三个，不足10位长度时用空格填充。</p>
+<p>###(2)%d代表整数内容，例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'price %d'</span>%10)</span><br><span class="line">10</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'price %d'</span>%10.6) </span><br><span class="line">10</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'price %3d'</span>%10000)</span><br><span class="line">10000</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'price %3d'</span>%10)</span><br><span class="line"> 10</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'price %-3d'</span>%10)</span><br><span class="line">10</span><br></pre></td></tr></table></figure></p>
+<p>%d代表整数内容当参数为小数时，会舍弃小数部分。注意这里面的3d表示输出一个宽度为3个单元的数值，如果数值长度小于三，那么数值靠右对齐，也可理解为在左边补空格，使其达到宽度达到3。-3d表示，数值反向对齐（靠左对齐），也可理解为在右边补空格，使其达到宽度达到3。</p>
+<p>###(3)%f：代表了浮点数内容(注意，在Python中浮点数是一个近似值，所以结果也是近似。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">'price %f'</span>%10.2)</span><br><span class="line">&gt;&gt;&gt;10.200000</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'price %.1f'</span>%10.2)</span><br><span class="line">10.2</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'prince %.1f'</span>%10.58)</span><br><span class="line">10.6</span><br></pre></td></tr></table></figure></p>
+<p>这里的“.1”表示保留一位小数，当取一位小数位的时候，将小数位第二位进行舍入操作，但是Python的中间值不是5，导致当小数位第二位是5时，可能直接被舍去<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'%5.1f'</span>%10.3)</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'%5.1f'</span>%100.3)</span><br></pre></td></tr></table></figure></p>
+<p>这里“5”表示输出一个宽度为5的单位，其中整数3位，小数部分1位，小数点占一位，不足5位补空格，与占位符%d补空格方式相同。</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/12/learn1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/11/new1/" class="archive-article-date">
-  	<time datetime="2018-07-11T15:09:14.348Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-11</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/11/new1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">This is test page</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/11/new1/">This is test page</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/09/hello-world/" class="archive-article-date">
-  	<time datetime="2018-07-09T12:19:59.697Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/09/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -277,8 +342,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
