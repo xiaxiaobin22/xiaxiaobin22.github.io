@@ -160,6 +160,175 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-learn7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/16/learn7/">一些函数</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/16/learn7/" class="archive-article-date">
+  	<time datetime="2018-07-16T01:15:47.515Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>+与*运算符<br>在列表中我们使用+运算符，可以将两个列表进行连接，生成一个新的列表。<br><br>比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;list1 = [1,2,3]  </span><br><span class="line">&gt;&gt;&gt;list2 = [4,5,6]</span><br><span class="line">&gt;&gt;&gt;list1+list2</span><br><span class="line">[1,2,3,4,5,6]</span><br></pre></td></tr></table></figure></p>
+<p>使用*运算符，可以将目标列表的内容重复N次，并生成一个新的列表。<br><br>比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;list1 = [1,2,3]</span><br><span class="line">&gt;&gt;&gt;list1*2</span><br><span class="line">[1,2,3,1,2,3]</span><br></pre></td></tr></table></figure></p>
+<p>max()与min()<br><br>函数格式：max(list)、min(list)<br><br>返回值：返回该列表中最大值或最小值。<br><br>注意：该函数在使用时，必须要求所统计的列表中元素的数据类型要一致。不支持多数据类型，数值型根据数值本身大小取值，字符串类型根据字母的ASCII码值取值，布尔值根据对应的1、0取值。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[1,2,3]</span><br><span class="line">&gt;&gt;&gt; max(list1)</span><br><span class="line">3</span><br><span class="line">&gt;&gt;&gt; min(list1)</span><br><span class="line">1</span><br><span class="line">sum()</span><br></pre></td></tr></table></figure></p>
+<p>函数格式：sum(list)<br><br>返回值：将列表中所用的数值进行求和运算，返回结果。注意，该函数只能用于数值型列表。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[1,2,3]</span><br><span class="line">&gt;&gt;&gt; sum(list1)</span><br><span class="line">6</span><br></pre></td></tr></table></figure></p>
+<p>sort()排序<br><br>函数格式：list.sort()、list.sort(reverse=True)<br><br>返回值：默认情况下，将原列表中元素按照升序进行排序<br><br>如果设置了反转参数为True，那么将原列表中的元素按照降序排列<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[2,1,3,4]</span><br><span class="line">&gt;&gt;&gt; list1.sort()</span><br><span class="line">&gt;&gt;&gt; list1</span><br><span class="line">[1, 2, 3, 4]</span><br><span class="line">&gt;&gt;&gt; list1.sort(reverse=True)</span><br><span class="line">&gt;&gt;&gt; list1</span><br><span class="line">[4, 3, 2, 1]</span><br></pre></td></tr></table></figure></p>
+<p>sorted()排序<br><br>函数格式：sorted(list)、sorted(list,reverse=True)<br><br>返回值：默认情况下，将原列表中元素按照升序进行排序,如果设置了反转参数为True，那么将原列表中的元素按照降序排列.<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[3,4,1,2]</span><br><span class="line">&gt;&gt;&gt; sorted(list1)</span><br><span class="line">[1, 2, 3, 4]</span><br><span class="line">&gt;&gt;&gt; sorted(list1,reverse=True)</span><br><span class="line">[4, 3, 2, 1]</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意：上面两种排序函数，其中第一个属于列表自身的排序方法，而第二种属于python内置的排序方法，也就是说第二种可以应用在包括列表在内多种集合排序。<br><br>count()计数函数<br><br>函数格式：list.count(元素)<br><br>返回值：返回指定元素在列表中出现的次数<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[2,2,4,3]</span><br><span class="line">&gt;&gt;&gt; list1.count(2)</span><br><span class="line">2</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>in 关键字<br><br>判断指定的元素是否在列表中存在，如果存在返回True，否在返回False<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]</span><br><span class="line">&gt;&gt;&gt; <span class="string">'a'</span> <span class="keyword">in</span> list1</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; <span class="string">'d'</span> <span class="keyword">in</span> list1</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>index()检索函数<br><br>函数格式：list.index(元素)<br><br>返回值：返回该元素在列表中的索引位置，如果不存在报错。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[1,2,3,4]</span><br><span class="line">&gt;&gt;&gt; list1.index(2)</span><br><span class="line">1</span><br></pre></td></tr></table></figure></p>
+<p>常用数据类型的转换<br><br>字符串转为整型：int(str)<br><br>函数格式：int(str)<br><br>返回值：将字符型数值转为整数<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;int(<span class="string">'3'</span>)</span><br><span class="line">3</span><br></pre></td></tr></table></figure></p>
+<p>字符串转为浮点型:float(str)<br><br>函数格式：float(str)<br><br>返回值：将字符型浮点数转为浮点数<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="built_in">float</span>(<span class="string">'2.4'</span>)</span><br><span class="line">2.4</span><br></pre></td></tr></table></figure></p>
+<p>数值转为字符串：str(int)、str(float)&lt;&gt;br<br>函数格式：str(int)、str(float)<br><br>返回值：将整数或浮点数，转为字符型数值<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;str(1)</span><br><span class="line"><span class="string">'1'</span>    </span><br><span class="line">&gt;&gt;&gt;str(1.3)</span><br><span class="line"><span class="string">'1.3'</span></span><br></pre></td></tr></table></figure></p>
+<p>字符串转为列表：list(str)<br><br>函数格式：list(str)<br><br>返回值：将指定的字符串，按照元素顺序逐一转为列表<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; string=<span class="string">'welcome'</span></span><br><span class="line">&gt;&gt;&gt; list1=list(string)</span><br><span class="line">&gt;&gt;&gt; list1</span><br><span class="line">[<span class="string">'w'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'c'</span>, <span class="string">'o'</span>, <span class="string">'m'</span>, <span class="string">'e'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>列表比较运算符操作<br><br>相当于列表使用普通的比较运算符<br><br>import operator<br><br>operator.ge()         大于等于   &gt;=<br><br>operator.gt()         大于       &gt;<br><br>operator.eq()       等于         ==<br><br>operator.ne()        不等于      !=<br><br>operator.le()           小于等于 &lt;=<br><br>operator.lt()          小于      &lt;<br><br>格式：operator.ge(列表1,列表2)<br><br>返回值：如果符合条件，返回True。反之，返回False。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import operator</span><br><span class="line">&gt;&gt;&gt; operator.ge([1,2],[1,2,3])</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; operator.le([1,2],[1,2,3])</span><br><span class="line">True</span><br></pre></td></tr></table></figure></p>
+<p>拆分字符串：str.split(分隔符)<br><br>函数格式：str.split(分隔符)<br><br>返回值：将字符串，根据指定的分隔符，转换为列表<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; string1 = <span class="string">"锅包肉 肠粉 毛血旺 宫保鸡丁"</span></span><br><span class="line">&gt;&gt;&gt; list2 = string1.split(<span class="string">' '</span>)</span><br><span class="line">&gt;&gt;&gt; list2</span><br><span class="line">[<span class="string">'锅包肉'</span>, <span class="string">'肠粉'</span>, <span class="string">'毛血旺'</span>, <span class="string">'宫保鸡丁'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>列表转为字符串：’分隔符’.join(list)<br><br>函数格式:’分隔符’.join(list)<br><br>返回值：将指定的列表中的元素，通过分隔符进行连接，转换为字符串<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[<span class="string">'w'</span>,<span class="string">'e'</span>,<span class="string">'l'</span>,<span class="string">'c'</span>,<span class="string">'o'</span>,<span class="string">'m'</span>,<span class="string">'e'</span>]</span><br><span class="line">&gt;&gt;&gt; <span class="string">''</span>.join(list1)</span><br><span class="line"><span class="string">'welcome'</span></span><br></pre></td></tr></table></figure></p>
+<p>补充：冒泡排序<br>list1 = [80,100,67,1,34,10]<br>for m in range(len(list1)):<br>    for n in range(m+1,len(list1)):<br>        first = list1[m]<br>        second = list1[n]<br>        if first &lt; second:<br>            list1[m] = list1[n]<br>            list1[n] = first<br>print(list1)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/16/learn7/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-learn6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/16/learn6/">Python中的组合数据类型</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/16/learn6/" class="archive-article-date">
+  	<time datetime="2018-07-16T00:37:17.241Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="List列表"><a href="#List列表" class="headerlink" title="List列表"></a>List列表</h3><p>一、概念：List数据<br>(1)首先它可以存储各种数据类型，比如：数值、字符串、布尔型等等。<br><br>(2)其次，列表中的元素可以随时进行删除、修改、增加，其长度随之变化<br><br>(3)同时，列表也是有序的，我们同样可以使用循环对其进行遍历。<br><br>二、声明与赋值<br>(1)、声明列表的同时进行赋值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;list1 = [1,2,3,4,5]</span><br><span class="line">&gt;&gt;&gt;list2 = [<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>]</span><br><span class="line">&gt;&gt;&gt;list3 = [1,<span class="string">'two'</span>,3,<span class="string">'four'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>我们通过观察，可以发现列表是有序的。那么可以通过’for 变量 in 有序集合’方式对其进行快速遍历比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; string=<span class="string">'welcome here'</span></span><br><span class="line">&gt;&gt;&gt; <span class="keyword">for</span> i <span class="keyword">in</span> string:</span><br><span class="line">        <span class="built_in">print</span>(i,end=<span class="string">''</span>)</span><br><span class="line">welcome here</span><br></pre></td></tr></table></figure></p>
+<p>(2)、声明一个空列表，后续进行添加元素<br><br>list1 = list()   此时，python会生成一个空列表,即：[]<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=list()</span><br><span class="line">&gt;&gt;&gt; list1</span><br><span class="line">[]</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意，生成的这个空列表中没有任何值，它的长度为0<br>三、列表的操作<br><br>(1)增加元素<br><br>第一种，使用append()函数，在列表的尾部追加一个新元素。<br><br>函数格式：list.append(元素)<br><br>返回值：列表长度+1<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[1,2,3]</span><br><span class="line">&gt;&gt;&gt; list1.append(4)</span><br><span class="line">&gt;&gt;&gt; list1</span><br><span class="line">[1, 2, 3, 4]</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>注意，该方法添加元素都是在列表的尾部。<br><br>第二种，使用extend()函数，在列表尾部，追加一个子列表内容<br><br>函数格式：list.extend(子列表)<br><br>返回值：列表长度+n<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[1,2,3]</span><br><span class="line">&gt;&gt;&gt; list2=[4,5,6]</span><br><span class="line">&gt;&gt;&gt; list1.extend(list2)</span><br><span class="line">&gt;&gt;&gt; list1</span><br><span class="line">[1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure></p>
+<p>第三种，使用“+”运算符，连接两个列表，其结果会生成一个新的列表。同时原来两个列表不变。<br><br>例如：<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[1,2,3]</span><br><span class="line">&gt;&gt;&gt; lsit2=[4,5,6]</span><br><span class="line">&gt;&gt;&gt; list3=list1+list2</span><br><span class="line">&gt;&gt;&gt; list1</span><br><span class="line">[1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; list2</span><br><span class="line">[4, 5, 6]</span><br><span class="line">&gt;&gt;&gt; list3</span><br><span class="line">[1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure></p>
+<p>第四种，使用insert()函数，对列表指定位置进行插入操作。<br><br>函数格式：list.insert(idx，元素),其中：idx代表要插入的索引位<br><br>返回值：插入了新元素的列表且,列表长度+1<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[1,2,3]</span><br><span class="line">&gt;&gt;&gt; list1.insert(1,<span class="string">'two'</span>)</span><br><span class="line">&gt;&gt;&gt; list1</span><br><span class="line">[1, <span class="string">'two'</span>, 2, 3]</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意：插入指定的索引位后，原索引位所在的元素下标+1<br><br>注意：我们在实际使用的时候，通常会利用append或extend来实现元素的追加，而少用insert进行元素的插入。因为在频繁的插入操作，需要耗费大量的内存来维护列表的索引关系。<br><br>(2)修改元素v<br>通过索引位，找到指定的列表元素，重新对其进行赋值即可完成修改操作。<br><br>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[1,2,3]</span><br><span class="line">&gt;&gt;&gt; list1[1]=<span class="string">'two'</span></span><br><span class="line">&gt;&gt;&gt; list1</span><br><span class="line">[1, <span class="string">'two'</span>, 3]</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>(3)删除元素<br><br>第一种，remove()移除在列表中指定的元素<br><br>函数格式：list.remove(元素)<br><br>返回值：移除元素后的列表，长度-1<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1.remove(2)</span><br><span class="line">&gt;&gt;&gt; list1</span><br><span class="line">[1, 3]</span><br></pre></td></tr></table></figure></p>
+<p>第二种，pop()有两种使用模式<br><br>list.pop()：默认模式，从列表的尾部弹出一个元素<br><br>返回值：返回所弹出的元素本身。如果列表已经为空，执行pop()程序会报错提示：列表为空。<br><br>list.pop(idx):idx指定的下表索引位置。<br><br>此处pop()与remove()类似，但是区别在于pop()会将移除的元素返回。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[1,2,3]</span><br><span class="line">&gt;&gt;&gt; list1</span><br><span class="line">[1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; list1.pop(1)</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt; list1</span><br><span class="line">[1, 3]</span><br></pre></td></tr></table></figure></p>
+<p>第三种，使用del删除指定的列表片段或列表本身<br><br>del list[idx]        删除指定索引位对应的元素<br><br>del list             删除整个列表，同时释放该列表所占用的内存空间<br><br>del list[star:end]   删除指定的列表片段<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[1,2,3,4,5,6]</span><br><span class="line">&gt;&gt;&gt; del list1[1::2]</span><br><span class="line">&gt;&gt;&gt; list1</span><br><span class="line">[1, 3, 5]</span><br></pre></td></tr></table></figure></p>
+<p>del与clear()的区别<br><br>del list 与 list.clear()<br><br>1、del 可以将列表的内容进行删除，同时将列表所占内存进行释放。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[1,2]</span><br><span class="line">&gt;&gt;&gt; del list1</span><br><span class="line">&gt;&gt;&gt; list1</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;pyshell#6&gt;"</span>, line 1, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    list1</span><br><span class="line">NameError: name <span class="string">'list1'</span> is not defined</span><br><span class="line">报错，会提示list1没有被声明。</span><br></pre></td></tr></table></figure></p>
+<p>2、clear()只是将列表中的内容进行清空，原列表内容为空。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[1,2,3]</span><br><span class="line">&gt;&gt;&gt; list1.clear()</span><br><span class="line">&gt;&gt;&gt; list1</span><br><span class="line">[]</span><br></pre></td></tr></table></figure></p>
+<h3 id="Tuple元组"><a href="#Tuple元组" class="headerlink" title="Tuple元组"></a>Tuple元组<br></h3><p>1、元组的概念：元组是值的有序序列，里面可以存储各种数据类型的元素。但是元组一旦被赋值后，其内容就不可被改变。<br><br>2、声明与赋值<br><br>第一种<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;tup = a,b,c,d</span><br></pre></td></tr></table></figure></p>
+<p>第二种<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;tup = (a,b,c,d)</span><br></pre></td></tr></table></figure></p>
+<p>推荐使用该种声明方式。<br>第三种<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;tup = tuple()</span><br></pre></td></tr></table></figure></p>
+<p>声明一个空的元组对象</p>
+<blockquote>
+<p>注意：元组在赋值时，且元素只有一个时，具体情况如下：<br>tuple1 = (1,)或tuple1 = 1,一定要在元素后面加上一个,号，与普通变量赋值进行区分。<br>3、常用操作<br>+、*、in、遍历等等，参考列表。</p>
+</blockquote>
+<h3 id="元组与列表转换"><a href="#元组与列表转换" class="headerlink" title="元组与列表转换"></a>元组与列表转换</h3><p>元组转为列表：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; tuple1=(1,2,3)</span><br><span class="line">&gt;&gt;&gt; list1=list(tuple1)</span><br><span class="line">&gt;&gt;&gt; list1</span><br><span class="line">[1, 2, 3]</span><br></pre></td></tr></table></figure></p>
+<p>列表转为元组<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[1,2,3]</span><br><span class="line">&gt;&gt;&gt; tuple1=tuple(list1)</span><br><span class="line">&gt;&gt;&gt; tuple1</span><br><span class="line">(1, 2, 3)</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/16/learn6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-learn5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
