@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 夏小白的博客</title>
+  <title>夏小白的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="range()函数range()函数自身并不会自动产生整数序列，它需要使用其他方式来调用它才会产生。语法格式： range(start,end[,step])start：起始下标（可选）。默认为0，例如range(5)等价于range(0，5)等价于[0,1,2,3,4]。end：终止下标。例如range(0,5)等价于[0,1,2,3,4]，注意不包括终止下标5。step：步长（可选）。默认为1">
+<meta property="og:type" content="article">
 <meta property="og:title" content="夏小白的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/07/19/learn10/index.html">
 <meta property="og:site_name" content="夏小白的博客">
+<meta property="og:description" content="range()函数range()函数自身并不会自动产生整数序列，它需要使用其他方式来调用它才会产生。语法格式： range(start,end[,step])start：起始下标（可选）。默认为0，例如range(5)等价于range(0，5)等价于[0,1,2,3,4]。end：终止下标。例如range(0,5)等价于[0,1,2,3,4]，注意不包括终止下标5。step：步长（可选）。默认为1">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-19T11:58:29.593Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="夏小白的博客">
+<meta name="twitter:description" content="range()函数range()函数自身并不会自动产生整数序列，它需要使用其他方式来调用它才会产生。语法格式： range(start,end[,step])start：起始下标（可选）。默认为0，例如range(5)等价于range(0，5)等价于[0,1,2,3,4]。end：终止下标。例如range(0,5)等价于[0,1,2,3,4]，注意不包括终止下标5。step：步长（可选）。默认为1">
   
     <link rel="alternative" href="/atom.xml" title="夏小白的博客" type="application/atom+xml">
   
@@ -162,289 +166,153 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-learn10" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="range-函数"><a href="#range-函数" class="headerlink" title="range()函数"></a>range()函数<br></h3><p>range()函数自身并不会自动产生整数序列，它需要使用其他方式来调用它才会产生。<br><br>语法格式： range(start,end[,step])<br><br>start：起始下标（可选）。默认为0，例如range(5)等价于range(0，5)等价于[0,1,2,3,4]。<br><br>end：终止下标。例如range(0,5)等价于[0,1,2,3,4]，注意不包括终止下标5。<br><br>step：步长（可选）。默认为1，例如range(0,3,1)等价于range(0,3)；range(0,6,2)等价于[0,2,4,6]<br></p>
+<h3 id="列表推导式生成式"><a href="#列表推导式生成式" class="headerlink" title="列表推导式生成式"></a>列表推导式生成式<br></h3><p>格式：[表达式或函数  for x in 序列]<br><br>含义：通过生成式中的循环，逐一产生x值，表达式使用X值进行相关运算。最终结果作为列表的元素。也就意味着，循环多少次，就会产生多少个相关元素。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; [x <span class="keyword">for</span> x <span class="keyword">in</span> range(10)]</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]<span class="comment">#利用推导式快速生成列表</span></span><br><span class="line">&gt;&gt;&gt; &#123;x:chr(x+64) <span class="keyword">for</span> x <span class="keyword">in</span> range(1,10)&#125;</span><br><span class="line">&#123;1: <span class="string">'A'</span>, 2: <span class="string">'B'</span>, 3: <span class="string">'C'</span>, 4: <span class="string">'D'</span>, 5: <span class="string">'E'</span>, 6: <span class="string">'F'</span>, 7: <span class="string">'G'</span>, 8: <span class="string">'H'</span>, 9: <span class="string">'I'</span>&#125;<span class="comment">#快速生成字典</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="迭代器（Iterator）"><a href="#迭代器（Iterator）" class="headerlink" title="迭代器（Iterator）"></a>迭代器（Iterator）<br></h3><p>1、概念：迭代器访问元素，是从第一个元素开始，依次访问后续元素直到结束。其中迭代器只能向前不能回退。其包含两个方法iter()和next()。<br><br>iter()用来创建一个迭代器，next()用来访问下一个元素。<br><br>目前我们所学的字符串、列表、元组都可以创建迭代器，那么它们也是可迭代化的对象。<br><br>迭代器两个步骤：<br><br>(1)当调用next()函数，会将迭代器当前位置状态进行改变<br><br>(2)会将下一个元素进行返回<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list1=[1,2,3]</span><br><span class="line">&gt;&gt;&gt; a=iter(list1)</span><br><span class="line">&gt;&gt;&gt;next(a)</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt;next(a)</span><br><span class="line">2</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>迭代器的延迟作用：迭代器生成的元素并不是在迭代器声明时，就准备好了的。通常时在调用迭代器需要提供该元素时生成的，也就是说只有在我们需要的时候迭代器才产生相关元素，不需要时并不会主动的生成相关元素。我们可以把迭代器看成一个容器，当我们需要时使用next()方法返回容器中的下一个值。<br>迭代器实现了工厂模式的对象，它在你每次访问下一个值的时候给你返回。<br></p>
+</blockquote>
+<p>可迭代化（iterable）：表明相关的对象可以创建迭代器对象，同时他们自身都是可以进行for数据遍历的。我们可以使用isinstance()来判断对象是否为可迭代化<br><br>函数格式：isinstance(对象，类型)<br><br>返回值：布尔值<br><br>结果：如果指定的对象是否属于指定的类型，那么返回True，反之返回False<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from collections import Iterable</span><br><span class="line">&gt;&gt;&gt; string=<span class="string">'adfg'</span></span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(isinstance(string, Iterable))</span><br><span class="line">True</span><br></pre></td></tr></table></figure></p>
+<p>enumerate()函数<br><br>函数格式：enumerate(iterable)<br><br>返回值：生成一个枚举对象<br><br>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; enum=enumerate([<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>])</span><br><span class="line">&gt;&gt;&gt; <span class="keyword">for</span> i <span class="keyword">in</span> enum:</span><br><span class="line">	<span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">(0, <span class="string">'a'</span>)</span><br><span class="line">(1, <span class="string">'b'</span>)</span><br><span class="line">(2, <span class="string">'c'</span>)</span><br><span class="line">&gt;&gt;&gt; enum=enumerate([<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>])</span><br><span class="line">&gt;&gt;&gt; <span class="keyword">for</span> i,value <span class="keyword">in</span> enum:</span><br><span class="line">	<span class="built_in">print</span>(i,value)</span><br><span class="line"></span><br><span class="line">0 a</span><br><span class="line">1 b</span><br><span class="line">2 c</span><br></pre></td></tr></table></figure></p>
+<h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3><p>1、创建方式<br><br>第一种，使用列表推导式，将[]改为()，生成一个generator对象<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; (x <span class="keyword">for</span> x <span class="keyword">in</span> range(10))</span><br><span class="line">&lt;generator object &lt;genexpr&gt; at 0x000001B86F0E37D8&gt;</span><br></pre></td></tr></table></figure></p>
+<p>第二种，使用函数方式，采用yield关键字来实现<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def fb():</span><br><span class="line">    a,b=0,1</span><br><span class="line">    <span class="keyword">while</span> True:</span><br><span class="line">        yield b</span><br><span class="line">        a,b=b,a+b</span><br><span class="line">a=fb()</span><br><span class="line"><span class="built_in">print</span>([next(a) <span class="keyword">for</span> i <span class="keyword">in</span> range(10)])</span><br><span class="line">[1,1,2,3,,5,8,13,21,34,55]</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>生成器我们通常可以认为一种特殊的迭代器，但是它不需要像迭代器一样去实现<strong>iter</strong>,<strong>next</strong>方法。<br><br>只需要使用yield关键字，该关键字可以在每次调用生成器函数时起到暂停作用，并将其值进行返回,同时还会记录当前运行值的状态。<br></p>
+</blockquote>
+<h3 id="对比：迭代器、生成器及可迭代化对象"><a href="#对比：迭代器、生成器及可迭代化对象" class="headerlink" title="对比：迭代器、生成器及可迭代化对象"></a>对比：迭代器、生成器及可迭代化对象<br></h3><p>1、容器是一系列的元素集合，str、list、set、dict对象都可以看作是容器。<br><br>容器都可以进行迭代（即用在while或for循环），凡是这样的容器我们都称为可迭代化对象（Iterable）。<br><br>2、可迭代化对象都实现了<strong>iter</strong>方法，该方法返回一个迭代器对象。<br><br>3、迭代器都拥有一个状态字段，用于记录下次迭代返回值。它实现了<strong>next</strong>和<strong>iter</strong>方法，迭代器不会一次性把所有的元素都加载到内存中，而是在需要的时候才生成返回结果。<br><br>4、生成器是一种特殊的迭代器，它的返回值不是通过return来返回的，而是通过yield来返回的。<br><br>小练习：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">def gno(n):</span><br><span class="line">    i=1000</span><br><span class="line">    no=<span class="string">''</span></span><br><span class="line">    <span class="keyword">while</span> True:</span><br><span class="line">        <span class="keyword">if</span> n==<span class="string">'A'</span>:</span><br><span class="line">            no=<span class="string">'A'</span>+str(i)</span><br><span class="line">            yield no         </span><br><span class="line">            i+=1</span><br><span class="line">        <span class="keyword">elif</span> n==<span class="string">'B'</span>:</span><br><span class="line">            no=<span class="string">'B'</span>+str(i)</span><br><span class="line">            yield no          </span><br><span class="line">            i+=1</span><br><span class="line">        <span class="keyword">elif</span> n==<span class="string">'C'</span>:</span><br><span class="line">            no=<span class="string">'C'</span>+str(i)</span><br><span class="line">            yield no</span><br><span class="line">            i+=1   </span><br><span class="line">aa=gno(<span class="string">'A'</span>)</span><br><span class="line">bb=gno(<span class="string">'B'</span>)</span><br><span class="line">cc=gno(<span class="string">'C'</span>)</span><br><span class="line"><span class="keyword">while</span> True:</span><br><span class="line">    a=input(<span class="string">'请输入科室编号：'</span>)</span><br><span class="line">    <span class="keyword">if</span> a==<span class="string">'A'</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'你的编号为&#123;0&#125;请等待！'</span>.format(next(aa)))</span><br><span class="line">    <span class="keyword">elif</span> a==<span class="string">'B'</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'你的编号为&#123;0&#125;请等待！'</span>.format(next(bb)))</span><br><span class="line">    <span class="keyword">elif</span> a==<span class="string">'C'</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'你的编号为&#123;0&#125;请等待！'</span>.format(next(cc)))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'输入有错，请重新输入！'</span>)</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/19/learn10/" class="archive-article-date">
-  	<time datetime="2018-07-19T11:58:29.411Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/19/learn10/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/19/learn9/" class="archive-article-date">
-  	<time datetime="2018-07-19T07:05:56.056Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/19/learn9/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">组合数据类型 集合(set)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/19/learn9/">组合数据类型 集合(set)</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/17/learn8/" class="archive-article-date">
-  	<time datetime="2018-07-17T13:47:30.837Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/17/learn8/">组合数据类型--字典</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/16/learn7/" class="archive-article-date">
-  	<time datetime="2018-07-16T01:15:47.515Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/16/learn7/">一些函数</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/16/learn6/" class="archive-article-date">
-  	<time datetime="2018-07-16T00:37:17.241Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/16/learn6/">Python中的组合数据类型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/15/learn5/" class="archive-article-date">
-  	<time datetime="2018-07-15T04:32:54.411Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/15/learn5/">控制语句</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/learn4/" class="archive-article-date">
-  	<time datetime="2018-07-14T09:40:15.328Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/learn4/">Python中的字符串</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/learn2/" class="archive-article-date">
-  	<time datetime="2018-07-14T07:34:21.325Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/learn2/">Python中的变量</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/13/learn3/" class="archive-article-date">
-  	<time datetime="2018-07-13T05:17:18.852Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/13/learn3/">Python中的基本数据类型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/learn1/" class="archive-article-date">
-  	<time datetime="2018-07-12T05:48:23.142Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/learn1/">print()函数的基本使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -469,8 +337,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
