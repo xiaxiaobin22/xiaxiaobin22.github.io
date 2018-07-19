@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 夏小白的博客</title>
+  <title>组合数据类型 集合(set) | 夏小白的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="夏小白的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="1、集合的概念：(1)集合set是一个无序的数据集合，可以存储各种数据类型的元素，同时可以对集合中的元素进行新增、删除等操作，因此集合的长度是可变的。(2)集合是不允许有重复元素，如果出现重复元素，除第一个元素之外，都会被集合所忽略掉。注意：set是无序的，即存储元素到set的顺序与这些元素输出的顺序无关。set仍然是采用哈希算法，对这些元素进行存储的。2、集合的声明与赋值123456789&amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组合数据类型 集合(set)">
+<meta property="og:url" content="http://yoursite.com/2018/07/19/learn9/index.html">
 <meta property="og:site_name" content="夏小白的博客">
+<meta property="og:description" content="1、集合的概念：(1)集合set是一个无序的数据集合，可以存储各种数据类型的元素，同时可以对集合中的元素进行新增、删除等操作，因此集合的长度是可变的。(2)集合是不允许有重复元素，如果出现重复元素，除第一个元素之外，都会被集合所忽略掉。注意：set是无序的，即存储元素到set的顺序与这些元素输出的顺序无关。set仍然是采用哈希算法，对这些元素进行存储的。2、集合的声明与赋值123456789&amp;gt">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-19T07:05:56.230Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="夏小白的博客">
+<meta name="twitter:title" content="组合数据类型 集合(set)">
+<meta name="twitter:description" content="1、集合的概念：(1)集合set是一个无序的数据集合，可以存储各种数据类型的元素，同时可以对集合中的元素进行新增、删除等操作，因此集合的长度是可变的。(2)集合是不允许有重复元素，如果出现重复元素，除第一个元素之外，都会被集合所忽略掉。注意：set是无序的，即存储元素到set的顺序与这些元素输出的顺序无关。set仍然是采用哈希算法，对这些元素进行存储的。2、集合的声明与赋值123456789&amp;gt">
   
     <link rel="alternative" href="/atom.xml" title="夏小白的博客" type="application/atom+xml">
   
@@ -162,295 +166,173 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-learn9" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      组合数据类型 集合(set)
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/19/learn9/" class="archive-article-date">
+
+        
+        <a href="/2018/07/19/learn9/" class="archive-article-date">
   	<time datetime="2018-07-19T07:05:56.056Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/19/learn9/">组合数据类型 集合(set)</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、集合的概念：<br><br>(1)集合set是一个无序的数据集合，可以存储各种数据类型的元素，同时可以对集合中的元素进行新增、删除等操作，因此集合的长度是可变的。<br><br>(2)集合是不允许有重复元素，如果出现重复元素，除第一个元素之外，都会被集合所忽略掉。<br><br>注意：set是无序的，即存储元素到set的顺序与这些元素输出的顺序无关。set仍然是采用哈希算法，对这些元素进行存储的。<br><br>2、集合的声明与赋值<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; set1=&#123;1,2,3&#125;</span><br><span class="line">&gt;&gt;&gt; set1</span><br><span class="line">&#123;1, 2, 3&#125;   </span><br><span class="line">&gt;&gt;&gt; set1=(&#123;1,2,3&#125;)</span><br><span class="line">&gt;&gt;&gt; set1</span><br><span class="line">&#123;1, 2, 3&#125;</span><br><span class="line">&gt;&gt;&gt; set1=<span class="built_in">set</span>()<span class="comment">#生成一个空集合</span></span><br><span class="line">&gt;&gt;&gt; set1</span><br><span class="line"><span class="built_in">set</span>()</span><br></pre></td></tr></table></figure></p>
+<p>注意:集合只能通过set()函数来生成空集合，而不是通过set1 = {},这个表达式会生成一个空字典。<br><br>3、数据类型转换<br><br>字符串转成集合<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;string = <span class="string">'hello'</span></span><br><span class="line">&gt;&gt;&gt;set1 = <span class="built_in">set</span>(string)</span><br><span class="line">&gt;&gt;&gt;set1</span><br><span class="line">&#123;<span class="string">'l'</span>, <span class="string">'o'</span>, <span class="string">'h'</span>, <span class="string">'e'</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<p>列表转成集合<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;list1 = [1,2,3]</span><br><span class="line">&gt;&gt;&gt;set1 = <span class="built_in">set</span>(list1)</span><br><span class="line">&gt;&gt;&gt;set1</span><br><span class="line">&#123;1, 2, 3&#125;</span><br></pre></td></tr></table></figure></p>
+<p>元组转成集合<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;tup = (1,2,3)</span><br><span class="line">&gt;&gt;&gt;set1 = <span class="built_in">set</span>(tup)</span><br><span class="line">set1</span><br><span class="line">&#123;1, 2, 3&#125;</span><br></pre></td></tr></table></figure></p>
+<p>4、集合的操作<br><br>(1)元素的增加 add()<br><br>函数格式：set.add(元素)<br><br>返回值：无返回值<br><br>结果：集合元素增加一个<br><br>例如：<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;set1=&#123;1, 2, 3&#125;</span><br><span class="line">&gt;&gt;&gt;set1.add(4)</span><br><span class="line">&gt;&gt;&gt;set1</span><br><span class="line">&#123;1, 2, 3, 4&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(2)元素的删除<br><br>第一、remove()<br><br>函数格式：set.remove(元素)<br><br>返回值：无返回值<br><br>结果：集合指定的元素被删除<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; set1=&#123;1, 2, 3, 4, 5&#125;</span><br><span class="line">&gt;&gt;&gt; set1.remove(5)</span><br><span class="line">&gt;&gt;&gt; set1</span><br><span class="line">&#123;1, 2, 3, 4&#125;</span><br></pre></td></tr></table></figure></p>
+<p>第二、discard()<br><br>函数格式：set.discard(元素)<br><br>返回值：无返回值<br><br>结果：集合中指定的元素被删除<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; set1=&#123;1,2,3&#125;</span><br><span class="line">&gt;&gt;&gt; set1.discard(3)</span><br><span class="line">&gt;&gt;&gt; set1</span><br><span class="line">&#123;1, 2&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意：上面两个方法，如果删除一个不存在的元素，其中remove()会报错，而discard()无反应。<br><br>第三、clear() 清空集合中所有的元素<br><br>函数格式：set.clear()<br><br>返回值：无返回值<br><br>结果：清空集合中所有的元素<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; set1=&#123;1,2,3&#125;</span><br><span class="line">&gt;&gt;&gt; set1</span><br><span class="line">&#123;1, 2, 3&#125;</span><br><span class="line">&gt;&gt;&gt; set1.clear()</span><br><span class="line">&gt;&gt;&gt; set1</span><br><span class="line"><span class="built_in">set</span>()</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>第四、del命令 删除集合，并释放其所占内存资源。<br><br>5、集合运算<br><br>(1)并集运算 (|)或union()<br><br>两个集合进行并集运算，即将两个集合中的元素都合并到一个新的集合中，重复的元素只出现一次。<br><br>例如：<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; set1 =&#123;<span class="string">'ch'</span>, <span class="string">'ow'</span>, <span class="string">'ro'</span>&#125;</span><br><span class="line">&gt;&gt;&gt; set2 =&#123;<span class="string">'ac'</span>, <span class="string">'dk'</span>, <span class="string">'ro'</span>&#125;</span><br><span class="line">&gt;&gt;&gt; set1 | set2 或 set1.union(set2)</span><br><span class="line">&#123;<span class="string">'ch'</span>, <span class="string">'ow'</span>, <span class="string">'ro'</span>, <span class="string">'ac'</span>, <span class="string">'dk'</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(2)交集运算 （&amp;）或intersection()<br><br>两个集合进行交集运算，即将两个集合中相同的元素合并到一个新的集合中。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; set1 =&#123;<span class="string">'ch'</span>, <span class="string">'ow'</span>, <span class="string">'ro'</span>&#125;</span><br><span class="line">&gt;&gt;&gt; set2 =&#123;<span class="string">'ac'</span>, <span class="string">'dk'</span>, <span class="string">'ro'</span>&#125;</span><br><span class="line">set1 &amp; set2 =&gt; &#123;<span class="string">'ro'</span>&#125;或者 set1.intersection(set2)</span><br></pre></td></tr></table></figure></p>
+<p>(3)差集运算（-）或difference()<br><br>两个集合进行差集运算，即运算符左边的集合，与运算右边的集合进行差运算，相当于使用左边集合去除与右边集合相同的元素。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; set1 =&#123;<span class="string">'ch'</span>, <span class="string">'ow'</span>, <span class="string">'ro'</span>&#125;</span><br><span class="line">&gt;&gt;&gt; set2 =&#123;<span class="string">'ac'</span>, <span class="string">'dk'</span>, <span class="string">'ro'</span>&#125;</span><br><span class="line">set1 - set2 =&gt; &#123;<span class="string">'ro'</span>&#125;或者 set1.difference(set2)</span><br></pre></td></tr></table></figure></p>
+<p>(4)对称差运算（^）或者symmetric_difference()<br><br>两个集合进行对称差运算，即两个集合中除去相同元素，其他所有元素重新归并到一个新集合中。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; set1 =&#123;<span class="string">'ch'</span>, <span class="string">'ow'</span>, <span class="string">'ro'</span>&#125;</span><br><span class="line">&gt;&gt;&gt; set2 =&#123;<span class="string">'ac'</span>, <span class="string">'dk'</span>, <span class="string">'ro'</span>&#125;</span><br><span class="line">set1 ^ set2 =&gt; &#123;<span class="string">'ro'</span>&#125;或者 set1.symmetric_difference(set2)</span><br></pre></td></tr></table></figure></p>
+<p>(5)子集与超集（父集）<br><br>set1 = {‘ch’, ‘ow’, ‘ro’}<br>subset = {‘ch’, ‘ow’}<br>我们通过观察可以看到，subset中的内容，属于set1的一部分。因此<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;subset.issubset(set1)</span><br><span class="line">True</span><br></pre></td></tr></table></figure></p>
+<p>表示，subset是set1集合的一个子集合<br><br>同理，我们也可以说，set1是subset的父集合<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;set1.issuperset(subset)</span><br><span class="line">True</span><br></pre></td></tr></table></figure></p>
+<p>6、集合常用函数<br><br>(1)update()<br><br>函数格式：set1.update(set2)<br><br>返回值：无<br><br>结果：我们将set2中的元素，添加到set1中，如果有相同的元素只保留一个。同时，该操作会修改set1的元素数量。(用set2而来更新set1)<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;set1 = &#123;<span class="string">'ch'</span>, <span class="string">'ow'</span>, <span class="string">'ro'</span>&#125;</span><br><span class="line">&gt;&gt;&gt;set2 = &#123;<span class="string">'ac'</span>, <span class="string">'dk'</span>, <span class="string">'ro'</span>&#125;</span><br><span class="line">&gt;&gt;&gt;set1.update(set2)</span><br><span class="line">&gt;&gt;&gt;set1</span><br><span class="line">set1 = &#123;<span class="string">'ac'</span>, <span class="string">'ow'</span>, <span class="string">'dk'</span>, <span class="string">'ch'</span>, <span class="string">'ro'</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(2)intersection_update()<br><br>函数格式：set1.intersection_update(set2)<br><br>返回值：无<br><br>结果：我们使用set2中的元素，添加到set1中，其中，保留两个集合中相同的元素。<br><br>其中，set1、set2中其他的元素被舍弃。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;set1 = &#123;<span class="string">'ch'</span>, <span class="string">'ow'</span>, <span class="string">'ro'</span>&#125;</span><br><span class="line">&gt;&gt;&gt;set2 = &#123;<span class="string">'ac'</span>, <span class="string">'dk'</span>, <span class="string">'ro'</span>&#125;</span><br><span class="line">&gt;&gt;&gt;set1.intersection_update(set2)</span><br><span class="line">&gt;&gt;&gt;set1</span><br><span class="line">&#123;<span class="string">'ro'</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(3)symmetric_difference_update()<br><br>函数格式：symmetric_difference_update()<br><br>返回值：无<br><br>结果：我们使用set1与set2进行运算，只保留两者除去相同元素之外的元素。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;set1 = &#123;<span class="string">'ch'</span>, <span class="string">'ow'</span>, <span class="string">'ro'</span>&#125;</span><br><span class="line">&gt;&gt;&gt;set2 = &#123;<span class="string">'ac'</span>, <span class="string">'dk'</span>, <span class="string">'ro'</span>&#125;</span><br><span class="line">&gt;&gt;&gt;set1.symmetric_difference_update(set2)</span><br><span class="line">&gt;&gt;&gt;set1</span><br><span class="line">&#123;<span class="string">'ac'</span>, <span class="string">'dk'</span>, <span class="string">'ch'</span>, <span class="string">'ow'</span>&#125;</span><br></pre></td></tr></table></figure></p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/19/learn9/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/17/learn8/" class="archive-article-date">
-  	<time datetime="2018-07-17T13:47:30.837Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/17/learn8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">组合数据类型--字典</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/17/learn8/">组合数据类型--字典</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/16/learn7/" class="archive-article-date">
-  	<time datetime="2018-07-16T01:15:47.515Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/16/learn7/">一些函数</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/16/learn6/" class="archive-article-date">
-  	<time datetime="2018-07-16T00:37:17.241Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/16/learn6/">Python中的组合数据类型</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/15/learn5/" class="archive-article-date">
-  	<time datetime="2018-07-15T04:32:54.411Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/15/learn5/">控制语句</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/learn4/" class="archive-article-date">
-  	<time datetime="2018-07-14T09:40:15.328Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/learn4/">Python中的字符串</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/learn2/" class="archive-article-date">
-  	<time datetime="2018-07-14T07:34:21.325Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/learn2/">Python中的变量</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/13/learn3/" class="archive-article-date">
-  	<time datetime="2018-07-13T05:17:18.852Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/13/learn3/">Python中的基本数据类型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/learn1/" class="archive-article-date">
-  	<time datetime="2018-07-12T05:48:23.142Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/learn1/">print()函数的基本使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/11/new1/" class="archive-article-date">
-  	<time datetime="2018-07-11T15:09:14.348Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/11/new1/">This is test page</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -475,8 +357,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
