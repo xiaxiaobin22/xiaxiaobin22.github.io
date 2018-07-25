@@ -19,6 +19,16 @@ for i in range(len(l1)):
     l3.append(l2[i])
 print(l3)
 #3
+s = "I|t's ni-ce to you to-day?| H-ow do y|ou d-o?"
+a=s.split('|')
+list1=list()
+list2=list()
+for i in a:
+    list1.append(i.split('-'))
+for i in list1:
+    list2.extend(i)
+print(list2)
+#4
 score = {'小花':89,'小白':67,'小小':56,'小灰':79,'小哈':97,'小皮':86,'小马':77}
 list1=list()
 for i,j in score.items():
