@@ -164,6 +164,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-learn1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/12/learn1/">print()函数的基本使用</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/12/learn1/" class="archive-article-date">
+  	<time datetime="2018-07-12T05:48:23.142Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="print-函数的常用输出"><a href="#print-函数的常用输出" class="headerlink" title="print()函数的常用输出"></a>print()函数的常用输出</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'hello world'</span>)</span><br><span class="line">hello world</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(123456)</span><br><span class="line">123456</span><br></pre></td></tr></table></figure>
+<h2 id="参数格式输出"><a href="#参数格式输出" class="headerlink" title="参数格式输出"></a>参数格式输出</h2><h3 id="1-s：代表了字符串内容，例："><a href="#1-s：代表了字符串内容，例：" class="headerlink" title="(1)%s：代表了字符串内容，例："></a>(1)%s：代表了字符串内容，例：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'welcome %s'</span>%<span class="string">'Beijing'</span>)</span><br><span class="line">welcome Beijing</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'welcome %10.3s'</span>%<span class="string">'Beijing'</span>)</span><br><span class="line">welcome        Bei</span><br></pre></td></tr></table></figure>
+<p>10表示输出宽度为10，其中.3表示截取字符串Beijing中的前三个，不足10位长度时用空格填充。</p>
+<h3 id="2-d代表整数内容，例："><a href="#2-d代表整数内容，例：" class="headerlink" title="(2)%d代表整数内容，例："></a>(2)%d代表整数内容，例：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'price %d'</span>%10)</span><br><span class="line">10</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'price %d'</span>%10.6) </span><br><span class="line">10</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'price %3d'</span>%10000)</span><br><span class="line">10000</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'price %3d'</span>%10)</span><br><span class="line"> 10</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'price %-3d'</span>%10)</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
+<p>%d代表整数内容当参数为小数时，会舍弃小数部分。注意这里面的3d表示输出一个宽度为3个单元的数值，如果数值长度小于三，那么数值靠右对齐，也可理解为在左边补空格，使其达到宽度达到3。-3d表示，数值反向对齐（靠左对齐），也可理解为在右边补空格，使其达到宽度达到3。</p>
+<h3 id="3-f：代表了浮点数内容-注意，在Python中浮点数是一个近似值，所以结果也是近似。"><a href="#3-f：代表了浮点数内容-注意，在Python中浮点数是一个近似值，所以结果也是近似。" class="headerlink" title="(3)%f：代表了浮点数内容(注意，在Python中浮点数是一个近似值，所以结果也是近似。)"></a>(3)%f：代表了浮点数内容(注意，在Python中浮点数是一个近似值，所以结果也是近似。)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">'price %f'</span>%10.2)</span><br><span class="line">&gt;&gt;&gt;10.200000</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'price %.1f'</span>%10.2)</span><br><span class="line">10.2</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'prince %.1f'</span>%10.58)</span><br><span class="line">10.6</span><br></pre></td></tr></table></figure>
+<p>这里的“.1”表示保留一位小数，当取一位小数位的时候，将小数位第二位进行舍入操作，但是Python的中间值不是5，导致当小数位第二位是5时，可能直接被舍去<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'%5.1f'</span>%10.3)</span><br><span class="line"> 10.3</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'%5.1f'</span>%100.3)</span><br><span class="line">100.3</span><br></pre></td></tr></table></figure></p>
+<p>这里“5”表示输出一个宽度为5的单位，其中整数3位，小数部分1位，小数点占一位，不足5位补空格，与占位符%d补空格方式相同。</p>
+<h2 id="print-函数的说明"><a href="#print-函数的说明" class="headerlink" title="print()函数的说明"></a>print()函数的说明</h2><h3 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h3><p>print(value,…,sep=’ ‘,end=’\n’)。其中，value代表我们要输出的内容，可以是字符串，可以是数值等内容。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(123)</span><br><span class="line">123</span><br></pre></td></tr></table></figure></p>
+<p>sep代表输出多个值之间的间隔符，默认使用空格隔开。我们可以重新定义间隔符，比如采用：#、，等。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(1,2,3,sep=<span class="string">'*'</span>)</span><br><span class="line">1*2*3</span><br></pre></td></tr></table></figure></p>
+<p>end代表输出语句的结束标识，默认使用了换行，我们可以重新定义其他内容，其输出的内容将不再进行换行操作.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(123)</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(456)</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(123,end=<span class="string">';'</span>)</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(456)</span><br><span class="line">123</span><br><span class="line">456</span><br><span class="line">123;456</span><br></pre></td></tr></table></figure></p>
+<h2 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h2><p>在Python3.0之后，推荐使用{0}来代替前期的%d,%s,%f等一系列的格式化参数，采用了字符串的format函数进行处理。写法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'welcome &#123;0&#125;同学，加入&#123;1&#125;班级'</span>.format(<span class="string">'tom'</span>,<span class="string">'Python'</span>))</span><br><span class="line">welcome tom 同学，加入Python班级</span><br></pre></td></tr></table></figure></p>
+<p>其中{0}，{1}分别映射format()中的’tom’和’Python3班’，如果前面占位符中的索引值变化，那么他们映射的值也随之变化.<br>如果在 str.format() 调用时使用关键字参数，可以通过参数名来引用值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(<span class="string">'This &#123;food&#125; is &#123;adjective&#125;.'</span>.format(food=<span class="string">'spam'</span>, adjective=<span class="string">'absolutely horrible'</span>))</span><br><span class="line">This spam is absolutely horrible.</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/12/learn1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-new1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
