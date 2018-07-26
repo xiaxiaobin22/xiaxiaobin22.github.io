@@ -39,12 +39,17 @@ def is_alphabet(uchar):
                 return True
         else:
                 return False
+def is_chinese(uchar):
+        """判断一个unicode是否是汉字"""
+        if uchar >= u'\u4e00' and uchar<=u'\u9fa5':
+                return True
+        else:
+                return False
 for line in f1:
     line=line.strip()
-    line=line+'\n'
     if is_alphabet(line):
-        f2.write(line)
-    else:
+        f2.write(line)+'\n'
+    elif is_chinese(line):
         f3.write(line)
 f1.close()
 f2.close()

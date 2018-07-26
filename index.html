@@ -164,6 +164,78 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-learn12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/26/learn12/">函数(2)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/26/learn12/" class="archive-article-date">
+  	<time datetime="2018-07-26T13:47:03.128Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="函数嵌套"><a href="#函数嵌套" class="headerlink" title="函数嵌套"></a>函数嵌套</h3><p>根据Python中，对函数的载入和调用特点。我们可以清楚看到，当Python运行相关文件时，如果遇到函数时，会先将其名字载入到内存中（即为函数名指定一个内存地址）。因此我们在使用函数名时，可以有以下三种情况：<br><br>(1)将函数名赋值给变量<br><br>例如：<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;def f1():</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">'ok'</span>)</span><br><span class="line">&gt;&gt;&gt;a = f1</span><br><span class="line">a()</span><br><span class="line">ok</span><br></pre></td></tr></table></figure></p>
+<p>这是变量a中的值就是f1()函数名的内存地址。<br><br>(2)将函数名作为容器的元素<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;def f1():</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">'ok'</span>)</span><br><span class="line">&gt;&gt;&gt;ls = [1,2,f1]</span><br></pre></td></tr></table></figure></p>
+<p>注意，此时存入到列表ls中的f1，它的值仍然是该函数名对应的内存地址<br><br>(3)将函数名作为另外一个函数的参数，进行传递<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;def f1():</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">'ok'</span>)</span><br><span class="line">&gt;&gt;&gt;def f2(x):</span><br><span class="line">      x()</span><br><span class="line">&gt;&gt;&gt;f2(f1)</span><br><span class="line">ok</span><br></pre></td></tr></table></figure></p>
+<p>其执行结果为OK，这种方式类似与函数的普通嵌套,代码如下：<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def f2():</span><br><span class="line">   def f1():</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">'ok'</span>)</span><br><span class="line">   f1()</span><br><span class="line">f2()</span><br><span class="line">ok</span><br></pre></td></tr></table></figure></p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>(1)闭包格式<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;def outer():</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">'我是外部函数'</span>)</span><br><span class="line">       def inner():</span><br><span class="line">           <span class="built_in">print</span>(<span class="string">'我是闭包函数'</span>)</span><br><span class="line">       <span class="built_in">return</span> inner</span><br><span class="line">&gt;&gt;&gt;f = outer()</span><br><span class="line">&gt;&gt;&gt;f()</span><br><span class="line">我是外部函数</span><br><span class="line">我是闭包函数</span><br></pre></td></tr></table></figure></p>
+<p>通过对例子的观察，我们发现闭包函数的写法有如下特点：<br><br>1、闭包函数作为内部函数，嵌套在外部函数中<br><br>2、闭包函数会作为外部函数的返回值，进行返回。返回闭包函数时，只返回函数名，不带括号。<br><br>3、外部调用时，首先要执行外部函数，然后将结果赋值给一个变量，此时该变量对应了闭包函数。<br><br>4、我们可以通过<strong>closure</strong>内部函数可以观察到，闭包函数的存在。前提是，闭包函数要与外部函数进行数据传递或调用。<br><br>总结：闭包使用的数据，必须是本身定义或外部函数中定义的相关变量，通常需要调用外部函数的数据，形成一个封闭的函数结构。不能与外部数据（全局变量）发生交流。<br>2）闭包的应用—装饰器<br><br>1、概念：装饰器本身仍然是一个函数。是我们队闭包应用的一种具体实现。<br><br>2、作用：装饰器可以在不改变函数本身功能的情况下，为函数添加额外的功能。诸如：日志、测试、性能检测等。装饰器同样也是返回一个函数对象。<br><br>3、用法：<br><br>使用格式：@+装饰器名称<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">def outer(f):</span><br><span class="line">    def inner(*var):</span><br><span class="line">        start_time = time.time()</span><br><span class="line">        f(*var)</span><br><span class="line">        time.sleep(0.3)</span><br><span class="line">        end_time = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'此函数执行时间为&#123;0&#125;'</span>.format(str(end_time-start_time)))</span><br><span class="line">    <span class="built_in">return</span> inner</span><br><span class="line">@outer      <span class="comment"># 此处就是装饰器的声明，这种方法我们成为语法糖</span></span><br><span class="line">def func1():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'hello world'</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><p>1.匿名函数<br><br>使用lambda关键字进行修饰，没有显式声明函数的名字。格式如下：<br><br>lambda 参数：表达式（返回值）<br><br>注意，在使用匿名函数时，因为其自身的情况限制，匿名函数并不能执行比较复杂的业务逻辑，即函数内的代码不能过多。lambda本身是一个表达式<br><br>2.map函数（映射函数）<br><br>函数格式：map(func,iterable)<br><br>返回值：map 对象（迭代器）<br><br>说明：map函数主要作用是，将指定函数与序列中的元素进行映射，并完成函数中功能的批量操作，返回值为一个迭代器。我们可以使用for循环或next()函数进行遍历。通常情况下，如果映射的函数较为简单，我们就不单独声明函数，而是采用匿名函数来实现，这样也能提高运行效率。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def f(x):</span><br><span class="line">    <span class="built_in">return</span> x * x</span><br><span class="line">a,b,c = map(f,[1,2,3])   </span><br><span class="line"><span class="built_in">print</span>(a,b,c)</span><br><span class="line">1,4,9</span><br></pre></td></tr></table></figure></p>
+<p>3.reduce函数（归纳函数）<br><br>函数格式：reduce(func,iterator)<br><br>返回值：返回函数计算结果，具体类型根据函数的返回值来定<br><br>说明：reduce函数中的func，一定要设为两个参数，用来接收迭代器返回的值。操作顺序为首先接收第一、第二个值，进行运算；运算结果再与第三个值进行运行，以此类推，直到迭代器迭代完全部数据。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list1=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>]</span><br><span class="line">b=reduce(lambda x,y:x+y,iter(list1))</span><br><span class="line"><span class="built_in">print</span>(b)</span><br><span class="line">abcd</span><br></pre></td></tr></table></figure></p>
+<p>4.filter函数（过滤函数）<br><br>函数格式：filter(func,iterable)<br><br>返回值：返回一个迭代器<br><br>说明：过滤函数与映射函数类似，都需要将函数作用于序列中的每个元素，根据函数判断True或False，返回相关元素。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=filter(lambda x:x%2!=0,range(1,11))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure></p>
+<p>5.递归<br><br>递归概念：就是使用自身函数对自身进行调用，每调用一次将当前次的运行结果保存到函数的堆栈中，以副本形式保存，一直到最后完成全部调用。然后逐一向外将当期函数的结果返回并退出到其调用的位置。<br><br>在Python中，通常推荐使用迭代，递归本身对内存的消耗和运行效率低下的问题较少使用。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def factorial(n):</span><br><span class="line">	<span class="keyword">if</span> n == 1:</span><br><span class="line">		<span class="built_in">return</span> 1</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		<span class="built_in">return</span> n * factorial(n-1)</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/26/learn12/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-learn11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -843,78 +915,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/14/learn2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-learn3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/13/learn3/">Python中的基本数据类型</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/13/learn3/" class="archive-article-date">
-  	<time datetime="2018-07-13T05:17:18.852Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>常见的数据类型有整型、浮点型、布尔型、复数型、字符串,我们工作中常用到整型、字符串型。</p>
-<h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2><p>我们通常根据计算机中数据编码格式，将整型分为：二进制、八进制、十进制、十六进制四种类型。</p>
-<h3 id="进制间的转换"><a href="#进制间的转换" class="headerlink" title="进制间的转换"></a>进制间的转换</h3><p>二进制与十进制之间的转换：bin(int)=&gt;将十进制转为二进制   int(bin)=&gt;将二进制转为十进制<br>八进制与十进制之间的转换：oct(int)=&gt;将十进制转为八进制   int(oct)=&gt;将八进制转为十进制<br>十六进制与十进制之间的转换： hex(int)=&gt;将十进制转为十六进制，int(hex)=&gt;将十六进制转为十进制</p>
-<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><p>第一，算术运算符：+、-、*、/<br>在python中默认的数据类型时浮点型，因此在执行算术运算时5/2=2.5，而不是2.<br>%：两数进行求余运算，如果分子大于分母，得余数；如果分子小于分母，直接得分子。注意：只有分子除尽分母时，结果才返回0<br>//：两数相除取整数，注意，此处得到的整数，为结果的整数部分不进行四舍五入操作。<br><strong>：A</strong>B 数A连续相乘B次，也可以说数A 的B次幂</p>
-<h3 id="一些运算"><a href="#一些运算" class="headerlink" title="一些运算"></a>一些运算</h3><p>(1)对于数值运算的四舍五入操作<br>math包中的floor()和ceil()函数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;import math</span><br><span class="line">&gt;&gt;&gt;math.floor(3/2) <span class="comment">#等同于 3//2    只舍不入</span></span><br><span class="line">&gt;&gt;&gt;int(3/2)</span><br><span class="line">&gt;&gt;&gt;math.ceil(3/2)<span class="comment">#此处，只要有小数位就进位，不管小数部分是否大于等于5  只入不舍</span></span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">2</span><br></pre></td></tr></table></figure></p>
-<p>round()函数进行四舍五入操作，round(数值[,保留小数位数])<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;round(1.5)  </span><br><span class="line">&gt;&gt;&gt;round(1.2)</span><br><span class="line">&gt;&gt;&gt;round(1.4,1)<span class="comment">#意味着保留小数点后一位</span></span><br><span class="line">2</span><br><span class="line">1</span><br><span class="line">1.4</span><br></pre></td></tr></table></figure></p>
-<p>(2)求幂运算<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;pow(2,3) <span class="comment">#等同于2**3</span></span><br><span class="line">8</span><br><span class="line">``` </span><br><span class="line">(3)求绝对值</span><br><span class="line">```bash</span><br><span class="line">&gt;&gt;&gt;abs(-10)</span><br><span class="line">10</span><br></pre></td></tr></table></figure></p>
-<p>(4)求两数相除的商与余数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">divmod(5,3) <span class="comment">#类似5%3=&gt;2</span></span><br><span class="line">(1,2)</span><br><span class="line">```    </span><br><span class="line">(5)运算符</span><br><span class="line">先给i赋值i = 10 </span><br><span class="line">i = i + 5  等同于  i+=5,i = i - 5  等同于  i-=5,i = i * 5  等同于  i*=5,i = i / 5  等同于  i/=5,i = i//5   等同于  i//=5, i = i ** 2 等同于  i**=2, i = i % 3  等同于  i%=3</span><br><span class="line"><span class="comment">## 布尔型</span></span><br><span class="line">(1)python中布尔型分为True和False两种，但是在实际操作中我们也可以将其与1和0等同。</span><br><span class="line">(2)布尔型常用在逻辑运算和判断条件中，作为结果来使用。但是也可以参与算术运算，当进行算术运算时，True作为1、False作为0参与运算。</span><br><span class="line">```bash</span><br><span class="line">&gt;&gt;&gt;a = True    </span><br><span class="line">&gt;&gt;&gt; a + 1 </span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt;b = False   </span><br><span class="line">&gt;&gt;&gt;b + 1</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; a + b </span><br><span class="line"> 1</span><br></pre></td></tr></table></figure></p>
-<p>注意：通常我们在python，不能将布尔型参与算术运算的。布尔型一般参加比较运算或逻辑运算，其返回值还是布尔型。<br>布尔型求非： not<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;not a </span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt;not b </span><br><span class="line">True</span><br></pre></td></tr></table></figure></p>
-<h2 id="精确的十进制"><a href="#精确的十进制" class="headerlink" title="精确的十进制"></a>精确的十进制</h2><p>在python中，我们通过阅读官方文档了解到，浮点数是一种近似值的表示，因此直接使用浮点数时常常出现精度丢失或不匹配情况发生。<br>python中提出了Decimal对象来进行解决，通过引入 import decimal生成一个decimal对象，将浮点数转换为decimal类型，可以支持完成对应的算术运算。例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;from decimal import Decimal   <span class="comment"># 引入decimal包中的Deciaml对象</span></span><br><span class="line">&gt;&gt;&gt;f1 = 12.4556</span><br><span class="line">&gt;&gt;&gt;f2 = 24.3</span><br><span class="line">&gt;&gt;&gt;c = Decimal.from_float(f1)    <span class="comment"># 将浮点数转换为decimal对象</span></span><br><span class="line">&gt;&gt;&gt;a = Decimal(f1).quantize(Decimal(<span class="string">'0.00'</span>)) <span class="comment">#将浮点数转换为decimal对象，同时指定该数值的精度，保留小数点后两位，并自动完成四舍五入。</span></span><br><span class="line">&gt;&gt;&gt;b = Decimal(f2).quantize(Decimal(<span class="string">'0.00'</span>))</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(a)</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span>(b)</span><br><span class="line">12.46</span><br><span class="line">24.30</span><br></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/13/learn3/">展开全文 >></a>
         </p>
       
 
