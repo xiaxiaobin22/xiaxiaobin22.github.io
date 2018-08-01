@@ -164,6 +164,77 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-learn2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/14/learn2/">Python中的变量</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/14/learn2/" class="archive-article-date">
+  	<time datetime="2018-07-14T07:34:21.325Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><p>在Python没有变量类型，直接进行变量的声明，比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;i = 10</span><br></pre></td></tr></table></figure></p>
+<h2 id="变量的赋值"><a href="#变量的赋值" class="headerlink" title="变量的赋值"></a>变量的赋值</h2><p>在python中，有两种赋值方式:</p>
+<h3 id="1-单个变量赋值"><a href="#1-单个变量赋值" class="headerlink" title="(1)单个变量赋值"></a>(1)单个变量赋值</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;name=<span class="string">'tome'</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-多个变量同时赋值"><a href="#2-多个变量同时赋值" class="headerlink" title="(2)多个变量同时赋值"></a>(2)多个变量同时赋值</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;name, age, sex = <span class="string">'tom'</span>， 23， <span class="string">'男'</span></span><br></pre></td></tr></table></figure>
+<h2 id="变量在内存中的存在情况"><a href="#变量在内存中的存在情况" class="headerlink" title="变量在内存中的存在情况"></a>变量在内存中的存在情况</h2><h3 id="1-python中的变量"><a href="#1-python中的变量" class="headerlink" title="(1)python中的变量"></a>(1)python中的变量</h3><p>在声明和赋值时，不仅声明了变量的名字同时还为这个变量指向了内存中的地址，该地址用来存储变量的值。</p>
+<h3 id="2-python中整数、字符串、浮点数等其本身都属于常量，所以当赋值给一个变量时。"><a href="#2-python中整数、字符串、浮点数等其本身都属于常量，所以当赋值给一个变量时。" class="headerlink" title="(2)python中整数、字符串、浮点数等其本身都属于常量，所以当赋值给一个变量时。"></a>(2)python中整数、字符串、浮点数等其本身都属于常量，所以当赋值给一个变量时。</h3><p>i = 10意味着将10这个常量在内存中的地址指向，因此，i = 10 ，j = 10 使用id(i),id(j）我们发现他们的id是相同的。因为，他们的值10在内存中的地址时相同的。</p>
+<h3 id="3-变量与内存地址"><a href="#3-变量与内存地址" class="headerlink" title="(3)变量与内存地址"></a>(3)变量与内存地址</h3><p>当我们声明一个变量时，对其进行赋值。实际上就是将变量值所在的内存地址，赋值给该变量。也就是说这个变量指向其值所在的内存地址。<br>当我们改变变量的值的时候，说白了就是将变量指向的内存地址进行变化。<br>举例：我们日常购买商品，快递员通过你的邮寄地址将快递送到你本人手里。可以理解为，快递员拥有指向你这个变量的地址，通过地址，将快递商品赋值给你。</p>
+<h3 id="4-变量与常量"><a href="#4-变量与常量" class="headerlink" title="(4)变量与常量"></a>(4)变量与常量</h3><p>变量：我们认为其内容是临时结果，可变的,可供后续的程序代码进行调用。<br>常量：我们认为其内容是不变的，或者在程序运行的过程中也不发生改变。<br>在Python中，我们通过大写变量名，来表明这是一个常量，比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;CARDID = <span class="string">'12048377293'</span></span><br><span class="line">&gt;&gt;&gt;USERNAME = <span class="string">'tom'</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="5-变量命名规则"><a href="#5-变量命名规则" class="headerlink" title="(5)变量命名规则"></a>(5)变量命名规则</h3><p>1）首先，Python中的变量命名，必须由字母、数字或下划线三者组成，不能有其他的字符出现。<br>2）其次，变量名的首个字符，必须是字母或下划线<br>3）然后，Python中的关键字不能作为变量名来使用，常用的关键字诸如：if,for,is,none等等。<br>Python是严格区分大小写的语言，其中A = 10 ，a = 10,我们认为这是两个不同的变量。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/14/learn2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-learn3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

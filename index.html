@@ -164,6 +164,74 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-learn13" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/31/learn13/">文件输入输出（IO）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/31/learn13/" class="archive-article-date">
+  	<time datetime="2018-07-31T14:53:53.948Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>(1)格式化函数<br><br>repr()<br><br>函数格式：repr(Object)<br><br>返回值：返回一个字符串类型的数据<br><br>说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。例如：<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;repr(<span class="string">'hello world'</span>)</span><br><span class="line"><span class="string">"'hello world'"</span></span><br><span class="line">&gt;&gt;&gt; repr(<span class="string">"hello world"</span>)</span><br><span class="line"><span class="string">"'hello world'"</span></span><br></pre></td></tr></table></figure></p>
+<p>format()<br><br>函数格式：str.format([变量名])<br><br>说明:该函数返回字符串内容<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=5</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'&#123;0:2&#125;'</span>.format(a))</span><br><span class="line"> 5</span><br><span class="line"><span class="comment">#表示输出宽度为二的数值a</span></span><br></pre></td></tr></table></figure></p>
+<p>(2)文本文件的输入输出<br><br>文本文件的操作步骤:<br><br>1、打开文件<br><br>函数格式：open(file,mode,buffering,encoding)<br><br>返回值：返回一个文件对象，用来对文件进行操作。<br><br>说明：该函数主要是进行文件打开操作，如果文件不存在就新建一个文件。如果存在就打开原有文件。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">'文件路径'</span>, <span class="string">'r'</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure></p>
+<p>Python引入了with语句来自动帮我们调用close()方法<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with open(<span class="string">'/path/to/file'</span>, <span class="string">'r'</span>) as f:</span><br><span class="line"><span class="built_in">print</span>(f.read())</span><br></pre></td></tr></table></figure></p>
+<p>2、操作文件<br><br>（1）写文件<br><br>函数格式：write(str)<br><br>返回值：返回所写入文件的字符串中的字符数。<br><br>说明：该函数可以一次性写入一个字符串内容，到文件中。每次写入文件时，如果使用的模式为w，那么因为着本次写入为覆盖式写入，即写入内容会替换掉原有文件内容。<br><br>函数格式：writelines(sequence)<br><br>返回值：无<br><br>说明：该函数可以使用列表、字符串、元组、集合、字典等作为参数，其中这些序列中的元素必须为字符串类型，同时也可以一次性写入多行字符串。换行符不会自动的加入，因此，需要显式的加入换行符。<br><br>（2）文件打开模式<br><br>‘r’：读<br><br>‘w’：写<br><br>‘a’：追加<br><br>‘r+’ == r+w（可读可写，文件若不存在就报错(IOError)<br><br>‘w+’ == w+r（可读可写，文件若不存在就创建）<br><br>‘a+’ ==a+r（可追加可写，文件若不存在就创建）<br><br>（3）读文件<br><br>函数格式：read([size])<br><br>返回值：返回按字节逐一读取的全部数据。<br><br>说明：该函数按照字节个数，逐一读取文件中的数据。如果没有规定读取数据的字节大小即size，一直读完文件中全部数据，如果规定了数据的字节大小，只读取规定字节数的内容。<br><br>函数格式：readline()<br><br>返回值：返回读取的一行字符串<br><br>说明：该函数一次能够读取文件中一行内容，如果需要读取全部内容，需要配合while循环使用，注意使用读取到的文件内容作为条件判断，即文件内容为空字符串时，退出循环。<br><br>函数格式：readlines()<br><br>返回值：返回一个包含多个字符串的列表。<br><br>说明：该函数能够一次性将文件中的数据全部读取出来，然后将文件中每行字符串，作为一个列表的元素，将其组装成一个列表返回。<br><br>3、关闭文件<br><br>函数格式：close()<br><br>返回值：无<br><br>说明：当我们操作文件时，进行相关的写入操作，Python将数据写入文件之前，会将文件保存在文件缓冲区中，在我们调用close()函数时，首先会将文件缓冲区内还没有写入到文件中的数据进行刷新并强制写入文件，然后关闭Python与文件的通道，释放相关资源。<br><br>4、json格式处理<br><br>在Python中，提供了json模块可以实现对特殊数据结构的读写。比如：列表和字典。<br><br>（1）将嵌套列表或字典转为json格式数据<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line">item = json.dumps(list/dict)</span><br><span class="line">file.writelines(item)</span><br><span class="line">json.dump(list, file)</span><br><span class="line">（2）将文件中的列表或字典json字符串读取出来</span><br><span class="line">f= open(file,mode)</span><br><span class="line">json.load(f)</span><br></pre></td></tr></table></figure></p>
+<p>5、文件及路径操作函数<br><br>(1)isfile()与isdir()(os.path模块)<br><br>函数格式：os.path.isfile(file)<br><br>返回值：bool<br><br>说明：根据传入的参数，判断该内容是否为文件类型。如果是文件类型返回True，如果不是返回False<br><br>isdir()<br><br>函数格式：os.path.isdir(path)<br><br>返回值：bool<br><br>说明：根据传入的参数，判断内容是否为目录类型，如果是目录就返回True，如果不是返回False<br><br>(2)创建路径 mkdir()、删除路径removedirs() (os模块)<br><br>函数格式：os.mkdir(path)<br><br>返回值：无<br><br>说明：如果指定路径中不存在该目录，那么创建该目录。注意，如果存在同名目录，则报错<br><br>函数格式：os.removedirs(path)，os.rmdir(path)<br><br>返回值：无<br><br>说明：删除指定的目录，如果该目录中存在文件或子目录，都不允许删除。否则报错。<br><br>(3)删除文件 remove() （os模块）<br><br>函数格式：os.remove(file)<br><br>返回值：无<br><br>说明：删除指定的文件，如果该文件不存在则报错。如果文件存在就删除。<br><br>(4)判断文件/目录是否存在 exists()<br><br>函数格式：os.path.exists(file/path)<br><br>返回值：bool<br><br>说明：判断指定的文件或路径是否存在，如果存在返回True，如果不存在返回False。<br><br>(5)返回指定路径下，所有子路径 listdir()<br><br>函数格式：os.listdir(path)<br><br>返回值：list<br><br>说明：返回指定路径下，所有的子路径。<br><br>(6)返回当前路径 getcwd()<br><br>函数格式：os.getcwd()<br><br>返回值：path<br><br>说明：返回当前程序所在的绝对路径<br><br>(7)返回文件大小 getsize()<br><br>函数格式：path.getsize()<br><br>返回值：int<br><br>说明：返回指定文件的大小，单位是字节<br><br>(8)重命名 rename()<br><br>函数格式：os.rename(oldfilename/oldpath,newfilename/newpath)<br><br>返回值：无<br><br>说明:将指定的文件名或目录名进行重命名。<br><br>(9)替换 replace()<br><br>函数格式：os.replace(src,dst)<br><br>返回值：无<br><br>说明：使用目标文件替换掉原文件<br><br>注意：在Python3.x版本中，将pathlib作为内置模块进行了引入。我们可以通过使用from pathlib import Path，使用。其使用的前提为：需要先创建一个path对象，然后对其进行操作。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p = Path(<span class="string">'c:\pythoncode\etc'</span>)</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/31/learn13/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-learn12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -844,77 +912,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/14/learn4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-learn2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/14/learn2/">Python中的变量</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/14/learn2/" class="archive-article-date">
-  	<time datetime="2018-07-14T07:34:21.325Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><p>在Python没有变量类型，直接进行变量的声明，比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;i = 10</span><br></pre></td></tr></table></figure></p>
-<h2 id="变量的赋值"><a href="#变量的赋值" class="headerlink" title="变量的赋值"></a>变量的赋值</h2><p>在python中，有两种赋值方式:</p>
-<h3 id="1-单个变量赋值"><a href="#1-单个变量赋值" class="headerlink" title="(1)单个变量赋值"></a>(1)单个变量赋值</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;name=<span class="string">'tome'</span></span><br></pre></td></tr></table></figure>
-<h3 id="2-多个变量同时赋值"><a href="#2-多个变量同时赋值" class="headerlink" title="(2)多个变量同时赋值"></a>(2)多个变量同时赋值</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;name, age, sex = <span class="string">'tom'</span>， 23， <span class="string">'男'</span></span><br></pre></td></tr></table></figure>
-<h2 id="变量在内存中的存在情况"><a href="#变量在内存中的存在情况" class="headerlink" title="变量在内存中的存在情况"></a>变量在内存中的存在情况</h2><h3 id="1-python中的变量"><a href="#1-python中的变量" class="headerlink" title="(1)python中的变量"></a>(1)python中的变量</h3><p>在声明和赋值时，不仅声明了变量的名字同时还为这个变量指向了内存中的地址，该地址用来存储变量的值。</p>
-<h3 id="2-python中整数、字符串、浮点数等其本身都属于常量，所以当赋值给一个变量时。"><a href="#2-python中整数、字符串、浮点数等其本身都属于常量，所以当赋值给一个变量时。" class="headerlink" title="(2)python中整数、字符串、浮点数等其本身都属于常量，所以当赋值给一个变量时。"></a>(2)python中整数、字符串、浮点数等其本身都属于常量，所以当赋值给一个变量时。</h3><p>i = 10意味着将10这个常量在内存中的地址指向，因此，i = 10 ，j = 10 使用id(i),id(j）我们发现他们的id是相同的。因为，他们的值10在内存中的地址时相同的。</p>
-<h3 id="3-变量与内存地址"><a href="#3-变量与内存地址" class="headerlink" title="(3)变量与内存地址"></a>(3)变量与内存地址</h3><p>当我们声明一个变量时，对其进行赋值。实际上就是将变量值所在的内存地址，赋值给该变量。也就是说这个变量指向其值所在的内存地址。<br>当我们改变变量的值的时候，说白了就是将变量指向的内存地址进行变化。<br>举例：我们日常购买商品，快递员通过你的邮寄地址将快递送到你本人手里。可以理解为，快递员拥有指向你这个变量的地址，通过地址，将快递商品赋值给你。</p>
-<h3 id="4-变量与常量"><a href="#4-变量与常量" class="headerlink" title="(4)变量与常量"></a>(4)变量与常量</h3><p>变量：我们认为其内容是临时结果，可变的,可供后续的程序代码进行调用。<br>常量：我们认为其内容是不变的，或者在程序运行的过程中也不发生改变。<br>在Python中，我们通过大写变量名，来表明这是一个常量，比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;CARDID = <span class="string">'12048377293'</span></span><br><span class="line">&gt;&gt;&gt;USERNAME = <span class="string">'tom'</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="5-变量命名规则"><a href="#5-变量命名规则" class="headerlink" title="(5)变量命名规则"></a>(5)变量命名规则</h3><p>1）首先，Python中的变量命名，必须由字母、数字或下划线三者组成，不能有其他的字符出现。<br>2）其次，变量名的首个字符，必须是字母或下划线<br>3）然后，Python中的关键字不能作为变量名来使用，常用的关键字诸如：if,for,is,none等等。<br>Python是严格区分大小写的语言，其中A = 10 ，a = 10,我们认为这是两个不同的变量。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/14/learn2/">展开全文 >></a>
         </p>
       
 

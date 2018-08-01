@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 夏小白的博客</title>
+  <title>文件输入输出（IO） | 夏小白的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="夏小白的博客">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="(1)格式化函数repr()函数格式：repr(Object)返回值：返回一个字符串类型的数据说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。例如：1234&amp;gt;&amp;gt;&amp;gt;repr(&apos;hello world&apos;)&quot;&apos;hello world&apos;&quot;&amp;gt;&amp;gt;&amp;gt; repr(&quot;hello world&quot;)&quot;&apos;he">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文件输入输出（IO）">
+<meta property="og:url" content="http://yoursite.com/2018/07/31/learn13/index.html">
 <meta property="og:site_name" content="夏小白的博客">
+<meta property="og:description" content="(1)格式化函数repr()函数格式：repr(Object)返回值：返回一个字符串类型的数据说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。例如：1234&amp;gt;&amp;gt;&amp;gt;repr(&apos;hello world&apos;)&quot;&apos;hello world&apos;&quot;&amp;gt;&amp;gt;&amp;gt; repr(&quot;hello world&quot;)&quot;&apos;he">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-31T14:53:54.242Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="夏小白的博客">
+<meta name="twitter:title" content="文件输入输出（IO）">
+<meta name="twitter:description" content="(1)格式化函数repr()函数格式：repr(Object)返回值：返回一个字符串类型的数据说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。例如：1234&amp;gt;&amp;gt;&amp;gt;repr(&apos;hello world&apos;)&quot;&apos;hello world&apos;&quot;&amp;gt;&amp;gt;&amp;gt; repr(&quot;hello world&quot;)&quot;&apos;he">
   
     <link rel="alternative" href="/atom.xml" title="夏小白的博客" type="application/atom+xml">
   
@@ -162,160 +166,160 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-learn13" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      文件输入输出（IO）
+    </h1>
+  
+
+        
+        <a href="/2018/07/31/learn13/" class="archive-article-date">
+  	<time datetime="2018-07-31T14:53:53.948Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>(1)格式化函数<br><br>repr()<br><br>函数格式：repr(Object)<br><br>返回值：返回一个字符串类型的数据<br><br>说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。例如：<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;repr(<span class="string">'hello world'</span>)</span><br><span class="line"><span class="string">"'hello world'"</span></span><br><span class="line">&gt;&gt;&gt; repr(<span class="string">"hello world"</span>)</span><br><span class="line"><span class="string">"'hello world'"</span></span><br></pre></td></tr></table></figure></p>
+<p>format()<br><br>函数格式：str.format([变量名])<br><br>说明:该函数返回字符串内容<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=5</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'&#123;0:2&#125;'</span>.format(a))</span><br><span class="line"> 5</span><br><span class="line"><span class="comment">#表示输出宽度为二的数值a</span></span><br></pre></td></tr></table></figure></p>
+<p>(2)文本文件的输入输出<br><br>文本文件的操作步骤:<br><br>1、打开文件<br><br>函数格式：open(file,mode,buffering,encoding)<br><br>返回值：返回一个文件对象，用来对文件进行操作。<br><br>说明：该函数主要是进行文件打开操作，如果文件不存在就新建一个文件。如果存在就打开原有文件。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">'文件路径'</span>, <span class="string">'r'</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure></p>
+<p>Python引入了with语句来自动帮我们调用close()方法<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with open(<span class="string">'/path/to/file'</span>, <span class="string">'r'</span>) as f:</span><br><span class="line"><span class="built_in">print</span>(f.read())</span><br></pre></td></tr></table></figure></p>
+<p>2、操作文件<br><br>（1）写文件<br><br>函数格式：write(str)<br><br>返回值：返回所写入文件的字符串中的字符数。<br><br>说明：该函数可以一次性写入一个字符串内容，到文件中。每次写入文件时，如果使用的模式为w，那么因为着本次写入为覆盖式写入，即写入内容会替换掉原有文件内容。<br><br>函数格式：writelines(sequence)<br><br>返回值：无<br><br>说明：该函数可以使用列表、字符串、元组、集合、字典等作为参数，其中这些序列中的元素必须为字符串类型，同时也可以一次性写入多行字符串。换行符不会自动的加入，因此，需要显式的加入换行符。<br><br>（2）文件打开模式<br><br>‘r’：读<br><br>‘w’：写<br><br>‘a’：追加<br><br>‘r+’ == r+w（可读可写，文件若不存在就报错(IOError)<br><br>‘w+’ == w+r（可读可写，文件若不存在就创建）<br><br>‘a+’ ==a+r（可追加可写，文件若不存在就创建）<br><br>（3）读文件<br><br>函数格式：read([size])<br><br>返回值：返回按字节逐一读取的全部数据。<br><br>说明：该函数按照字节个数，逐一读取文件中的数据。如果没有规定读取数据的字节大小即size，一直读完文件中全部数据，如果规定了数据的字节大小，只读取规定字节数的内容。<br><br>函数格式：readline()<br><br>返回值：返回读取的一行字符串<br><br>说明：该函数一次能够读取文件中一行内容，如果需要读取全部内容，需要配合while循环使用，注意使用读取到的文件内容作为条件判断，即文件内容为空字符串时，退出循环。<br><br>函数格式：readlines()<br><br>返回值：返回一个包含多个字符串的列表。<br><br>说明：该函数能够一次性将文件中的数据全部读取出来，然后将文件中每行字符串，作为一个列表的元素，将其组装成一个列表返回。<br><br>3、关闭文件<br><br>函数格式：close()<br><br>返回值：无<br><br>说明：当我们操作文件时，进行相关的写入操作，Python将数据写入文件之前，会将文件保存在文件缓冲区中，在我们调用close()函数时，首先会将文件缓冲区内还没有写入到文件中的数据进行刷新并强制写入文件，然后关闭Python与文件的通道，释放相关资源。<br><br>4、json格式处理<br><br>在Python中，提供了json模块可以实现对特殊数据结构的读写。比如：列表和字典。<br><br>（1）将嵌套列表或字典转为json格式数据<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line">item = json.dumps(list/dict)</span><br><span class="line">file.writelines(item)</span><br><span class="line">json.dump(list, file)</span><br><span class="line">（2）将文件中的列表或字典json字符串读取出来</span><br><span class="line">f= open(file,mode)</span><br><span class="line">json.load(f)</span><br></pre></td></tr></table></figure></p>
+<p>5、文件及路径操作函数<br><br>(1)isfile()与isdir()(os.path模块)<br><br>函数格式：os.path.isfile(file)<br><br>返回值：bool<br><br>说明：根据传入的参数，判断该内容是否为文件类型。如果是文件类型返回True，如果不是返回False<br><br>isdir()<br><br>函数格式：os.path.isdir(path)<br><br>返回值：bool<br><br>说明：根据传入的参数，判断内容是否为目录类型，如果是目录就返回True，如果不是返回False<br><br>(2)创建路径 mkdir()、删除路径removedirs() (os模块)<br><br>函数格式：os.mkdir(path)<br><br>返回值：无<br><br>说明：如果指定路径中不存在该目录，那么创建该目录。注意，如果存在同名目录，则报错<br><br>函数格式：os.removedirs(path)，os.rmdir(path)<br><br>返回值：无<br><br>说明：删除指定的目录，如果该目录中存在文件或子目录，都不允许删除。否则报错。<br><br>(3)删除文件 remove() （os模块）<br><br>函数格式：os.remove(file)<br><br>返回值：无<br><br>说明：删除指定的文件，如果该文件不存在则报错。如果文件存在就删除。<br><br>(4)判断文件/目录是否存在 exists()<br><br>函数格式：os.path.exists(file/path)<br><br>返回值：bool<br><br>说明：判断指定的文件或路径是否存在，如果存在返回True，如果不存在返回False。<br><br>(5)返回指定路径下，所有子路径 listdir()<br><br>函数格式：os.listdir(path)<br><br>返回值：list<br><br>说明：返回指定路径下，所有的子路径。<br><br>(6)返回当前路径 getcwd()<br><br>函数格式：os.getcwd()<br><br>返回值：path<br><br>说明：返回当前程序所在的绝对路径<br><br>(7)返回文件大小 getsize()<br><br>函数格式：path.getsize()<br><br>返回值：int<br><br>说明：返回指定文件的大小，单位是字节<br><br>(8)重命名 rename()<br><br>函数格式：os.rename(oldfilename/oldpath,newfilename/newpath)<br><br>返回值：无<br><br>说明:将指定的文件名或目录名进行重命名。<br><br>(9)替换 replace()<br><br>函数格式：os.replace(src,dst)<br><br>返回值：无<br><br>说明：使用目标文件替换掉原文件<br><br>注意：在Python3.x版本中，将pathlib作为内置模块进行了引入。我们可以通过使用from pathlib import Path，使用。其使用的前提为：需要先创建一个path对象，然后对其进行操作。<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p = Path(<span class="string">'c:\pythoncode\etc'</span>)</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/learn2/" class="archive-article-date">
-  	<time datetime="2018-07-14T07:34:21.325Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/learn2/">Python中的变量</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/31/learn13/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/13/learn3/" class="archive-article-date">
-  	<time datetime="2018-07-13T05:17:18.852Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/26/learn12/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">函数(2)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/13/learn3/">Python中的基本数据类型</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/learn1/" class="archive-article-date">
-  	<time datetime="2018-07-12T05:48:23.142Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/learn1/">print()函数的基本使用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/11/new1/" class="archive-article-date">
-  	<time datetime="2018-07-11T15:09:14.348Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/11/new1/">This is test page</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/09/hello-world/" class="archive-article-date">
-  	<time datetime="2018-07-09T12:19:59.697Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/09/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -340,8 +344,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
